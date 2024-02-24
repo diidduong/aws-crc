@@ -21,7 +21,7 @@ jobs:
         run: |
           pip install pytest
           pytest
-        working-directory: aws-crc/tests
+        working-directory: aws-crc/tests/unit
   deploy:
     needs: test
     environment: be-dev
