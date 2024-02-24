@@ -16,12 +16,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-        working-directory: aws-crc/tests
+        working-directory: backend/tests
       - name: Test with pytest
         run: |
-          pip install pytest
           pytest
-        working-directory: aws-crc/tests/unit
+        working-directory: backend
   deploy:
     needs: test
     environment: be-dev
@@ -38,7 +37,7 @@ jobs:
           aws-region: us-east-1
       # Build inside Docker containers
       - run: sam build --use-container
-        working-directory: aws-crc
+        working-directory: backend
       # Prevent prompts and failure when the stack is unchanged
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
-        working-directory: aws-crc
+        working-directory: backend
