@@ -5,23 +5,6 @@ on:
     branches:
       - master
 jobs:
-  test:
-    environment: be-dev
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-        working-directory: backend/tests
-      - name: Test with pytest
-        run: |
-          pytest
-        working-directory: backend
   deploy:
     needs: test
     environment: be-dev
@@ -36,6 +19,18 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install Test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        working-directory: backend/tests
+      - name: Test with pytest
+        run: |
+          pytest
+        working-directory: backend
       # Build inside Docker containers
       - run: sam build --use-container
         working-directory: backend
