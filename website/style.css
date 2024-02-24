@@ -1,0 +1,47 @@
+
+header {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: skyblue;
+}
+
+footer {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: skyblue;
+}
+
+body {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    
+}
+
+.contact {
+    margin: 0;
+}
+
+.title > h1 {
+    margin-bottom: 0;
+}
+
+.section {
+    font-size: large;
+    font-weight: bold;
+    border-style: none none solid none;
+    border-color: skyblue;
+}
+
+.group-card {
+    
+}
+
+.card {
+    margin-bottom: 1rem;
+}
