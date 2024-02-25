@@ -20,5 +20,3 @@ Resources:
       - x86_64
       FunctionUrlConfig:
         AuthType: NONE
-      Policies: 
-      - aws_crc_view_count-role-r61d4yx5
