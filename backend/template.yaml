@@ -21,4 +21,4 @@ Resources:
       FunctionUrlConfig:
         AuthType: NONE
       Policies: 
-        DynamoDBCrudPolicy: {}
+      - DynamoDBCrudPolicy
