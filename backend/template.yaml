@@ -21,4 +21,4 @@ Resources:
       FunctionUrlConfig:
         AuthType: NONE
       Policies: 
-      - DynamoDBCrudPolicy
+      - aws_crc_view_count-role-r61d4yx5
