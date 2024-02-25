@@ -6,7 +6,6 @@ on:
       - master
 jobs:
   deploy:
-    needs: test
     environment: be-dev
     runs-on: ubuntu-latest
     steps:
