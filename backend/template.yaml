@@ -20,3 +20,5 @@ Resources:
       - x86_64
       FunctionUrlConfig:
         AuthType: NONE
+      Policies: 
+        DynamoDBCrudPolicy: {}
