@@ -26,7 +26,7 @@ resource "aws_lambda_function" "visitor_counter" {
 }
 
 resource "aws_iam_role" "iam_for_lambda" {
-  name               = "iam_for_lambda"
+  name_prefix        = "iam_for_lambda"
   description        = "IAM Policy for backend Cloud Resume Challenge" 
   assume_role_policy = data.aws_iam_policy_document.assume_role_for_lambda.json
 }
