@@ -9,7 +9,7 @@ env:
   TF_CLOUD_ORGANIZATION: "Banavocado"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "aws-crc"
-  CONFIG_DIRECTORY: "./"
+  CONFIG_DIRECTORY: "./backend/"
 
 jobs:
   terraform:
