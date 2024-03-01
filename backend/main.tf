@@ -90,7 +90,7 @@ resource "aws_lambda_function_url" "visitor_counter_url" {
 
   cors {
     allow_credentials = false
-    allow_origins     = ["*"]
+    allow_origins     = ["https://www.haerowin.com/"]
     allow_methods     = ["*"]
     allow_headers     = ["date", "keep-alive"]
     expose_headers    = ["keep-alive", "date"]
