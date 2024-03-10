@@ -48,4 +48,17 @@ You can leave the rest default, hit `Create bucket`. Your bucket should be creat
 
 You should see a <em>S3 URL</em> generated, but it is not accessible because the default S3 setting blocks ALL public access. We'll use CloudFront to safely direct users to our static website. 
 
+## 5. HTTPS
+### Create a CloudFront distribution
+1. Go to [Amazon CloudFront](https://aws.amazon.com/cloudfront/)
+2. Hit `Create distribution`
+3. Under <b>Origin</b>
+- Origin domain: select your S3 URL generated in the previous step, eg. <em>diidduong-crc.s3.amazonaws.com</em>, leave the rest as Default
+- Origin access: select <em>Origin access control settings (recommended)</em>, CloudFront will provide a policy for you to attach to your S3 bucket to allow CloudFront to access your S3 resources
+4. Under <b>Viewer</b>
+- Viewer protocol policy: select <em>HTTPS only</em>
+
+Leave the rest Default, hit `Create distribution`
+
+
 
