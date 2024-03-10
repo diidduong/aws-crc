@@ -58,7 +58,6 @@ You should see a <em>S3 URL</em> generated, but it is not accessible because the
 4. Under <b>Viewer</b>
 - Viewer protocol policy: select <em>HTTPS only</em>
 
-Leave the rest Default, hit `Create distribution`
-
+Leave the rest Default, hit `Create distribution`. Your CloudFront distribution should be created! Open it and you will see a generated <em>Distribution domain name</em> which is your <em>CloudFront URL</em>. But you will get 403 Forbidden error if you access the url because it is a secure protocol (HTTPS) that requires an SSL certificate.
 
 
