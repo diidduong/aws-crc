@@ -61,3 +61,29 @@ You should see a <em>S3 URL</em> generated, but it is not accessible because the
 Leave the rest Default, hit `Create distribution`. Your CloudFront distribution should be created! Open it and you will see a generated <em>Distribution domain name</em> which is your <em>CloudFront URL</em>. But you will get 403 Forbidden error if you access the url because it is a secure protocol (HTTPS) that requires an SSL certificate.
 
 
+## 6. DNS
+Since I'm using Route 53 for my custom domain, here are steps to connect it to our Cloud Front distribution.
+### Create Custom SSL Certificate
+1. Go to [Amazon CloudFront](https://aws.amazon.com/cloudfront/)
+2. Open the distribution you just created, hit `Edit` under <b>Settings</b> tab
+3. Add two CNAME, `website.com` and `www.website.com`
+4. Under <b>Custom SSL certificate - optional</b>, hit `Request certificate`, leave the Cloud Front tab open, we will come back later when we have the certificate
+5. We will <em>Request a public certificate</em>, enter both domains `website.com` and `www.website.com` as fully qualified domain name
+6. Under <b>Validation method</b>, choose <em>Email validation</em> since it will be quick and simple, just by opening a link from your email and approving it
+7. Hit `Request`. You should receive an email with an instruction link. Note: Check your spam folder if you don't see any new emails.
+8. After you approve, go back to the Cloud Front tab and refresh it. You will see your new certificate there. Select it
+9. Under <b>Default root object</b>, enter <em>index.html</em>
+10. Hit `Save changes`
+
+### Create a record in Route 53 Hosted Zone for Cloud Front distribution
+1. Go to [Amazon Route53](https://aws.amazon.com/route53/) Hosted zones section
+2. Open your zone, eg. `website.com`
+3. Hit `Create record`
+4. Under Record name, enter `www` as your subdomain name for your domain
+5. Under Record Type, choose <em>A – Routes traffic to an IPv4 address and some AWS resources</em>
+6. Enable <em>Alias</em>
+7. Route traffic to <em>Alias to Cloud Front distribution</em> and choose your distribution created from step 5.
+8. Hit `Create records`
+
+Go to your domain, eg. `https://www.wesbite.com` and you should see your Resume!
+
