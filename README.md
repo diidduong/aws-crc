@@ -87,3 +87,14 @@ Since I'm using Route 53 for my custom domain, here are steps to connect it to o
 
 Go to your domain, eg. `https://www.wesbite.com` and you should see your Resume!
 
+## 7. Javascript
+We will need some JS to count the number of visitors. Because we want to persist the data, we can let [AWS Lambda](https://aws.amazon.com/lambda/) handle the calculation. So your JS simply triggers the Lambda function and reads the latest visitor counter. I'll show you in the next steps. Here is [tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) on how to send an HTTP request.
+
+## 8. Database
+Let's create a database to store our counter. Here are steps to create a new database using [AWS DynamoDB](https://aws.amazon.com/dynamodb/)
+### Create new database
+1. Go to [AWS DynamoDB](https://aws.amazon.com/dynamodb/)
+2. In <b>Tables</b> tab, hit `Create Table`
+3. Give it a name, eg. <em>aws-crc</em>
+4. Under the Partition key, enter <em>id</em> as key name
+5. Hit `Create Table`
